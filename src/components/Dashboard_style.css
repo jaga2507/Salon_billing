@@ -1,0 +1,612 @@
+.log{
+    font-size: 22px;
+    font-weight: 800;
+    color: goldenrod;   
+    margin: 14px;
+}
+.sale_list{
+    display: flex;
+    gap: 20px;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.sale_card{
+    width: 180px;
+    height: 18vh;
+    background-color: white;
+    box-shadow: 1px 1px 20px gray;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    margin: 20px 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.chart{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;    
+    /* flex-wrap: wrap; */
+}
+.over_all_sale{
+    width: 46%;
+    margin: 20px 0;
+    height: 50vh;
+    background-color: white;
+    box-shadow: 1px 1px 20px gray;
+    border-radius: 20px;
+    padding: 25px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.today_sale{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(64, 64, 64);
+}
+.money{
+    font-size: 20px;
+    font-weight: 800;
+    color: goldenrod;
+}
+.bar canvas{
+    width: fit-content !important;
+    /* height: 100% !important; */
+    /* zoom: 0.6; */
+}
+.bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    height: 50vh;
+    background-color: white;
+    box-shadow: 1px 1px 20px gray;
+    border-radius: 20px;
+    padding: 25px 30px;
+}
+.pie{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 20px 0;
+    height: 50vh;
+    background-color: white;
+    box-shadow: 1px 1px 20px gray;
+    border-radius: 20px;
+    padding: 25px 30px;
+}
+.pieChart{
+    display: flex;
+    height: 40vh !important;
+    align-items: center;
+    gap: 60px;
+}
+.pieData{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.displayData{
+    display: flex;
+    gap: 5px;
+}
+.displayData{
+    font-size: 18px;
+    color: goldenrodenrod;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.radar_chart Radar{
+    width: 100% !important;
+    display: unset !important;
+    height: 100% !important;
+}
+.radar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 20px 0;
+    height: 50vh;
+    background-color: white;
+    box-shadow: 1px 1px 20px gray;
+    border-radius: 20px;
+    padding: 25px 30px;
+}
+.data_table{
+    text-align: center !important;
+    justify-content: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
+    min-height: 1px;
+    background-color: white;
+    box-shadow: 1px 1px 20px gray;
+    border-radius: 20px;
+    padding: 25px 30px;
+    margin: 20px 0;
+}
+.home{
+    display: flex;
+    /* gap: 20px; */
+    height: 100vh;
+}
+.home_menu{
+    /* width: 15vw; */
+    /* background-color: white; */
+    box-shadow: 1px 1px 20px gray;
+    z-index: 2;
+    background-color: white;
+    /* overflow-y: unset; */
+}
+.home_menu .css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    background-color: white;
+}
+.app{
+    padding: 30px;
+    overflow-y: auto !important;
+    width: 100% !important;
+    margin-top: 50px;
+}
+.logo{
+    padding: 15px;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+    /* border-bottom: 1px solid rgba(218, 165, 32, 0.219); */
+}
+.home_dashboard{
+    width: 100%;
+}
+.tabs{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.menu_page{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    /* padding: 15px ; */
+    border-bottom: 1px solid rgba(218, 165, 32, 0.164);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;    
+}
+.menu_page:hover{
+    background-color: goldenrod;
+    color: white;
+}
+.bill{
+    position: sticky !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    bottom: 0 !important;
+    left: 0 !important;
+}
+.bill_button{
+    background-color: goldenrod !important;
+    color: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    width: 70px !important;
+    height: 70px !important;
+    margin: 0 !important;
+    padding: 0 0 3px 0 !important;
+}
+.welcome{
+    text-align: center;
+    color: goldenrod;
+    margin-bottom: 15px;
+}
+.product_card{
+    width: 15vw;
+    margin: 20px 0;
+    height: 44vh;
+    background-color: white;
+    /* box-shadow: 1px 1px 20px rgb(255, 255, 255); */
+    /* border: 1px solid grey; */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.product_img img{
+    width: 100%;
+    height: 25vh;
+    border-radius: 20px;
+}
+.product_img img{
+    /* border: 1px solid grey; */
+}
+.card_title{
+    font-size: 18px;
+    font-weight: 800;
+}
+.card_details{
+    padding: 5px 10px;
+}
+.card_rating{
+    margin-top: 3px;
+    font-weight: 800;
+}
+.product_information{
+    font-size: 14px;
+}
+.product_main{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cus_welcome{
+    font-size: 22px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.cus_modal{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.cus_number{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.cus_input{
+    margin-top: 10px;
+}
+.date_input{
+     padding: 5px 0 0 0;
+}
+.cus_button{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    align-items: flex-end !important;
+}
+.cus_button Buttons{
+    width: 200px !important;
+}
+.cus_input TextField{
+    width: 100%;
+}
+.bill_sheet{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-height: 360px;
+    min-height: 1px;
+    margin-top: 10px;
+    padding: 0 10px 10px 10px;
+    overflow: auto;
+}
+.Bill_card{
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px gray;
+    margin-top: 20px;
+    width: 9vw;
+    text-align: center;
+    height: 12vh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.Bill_card:hover{
+    background-color: rgba(128, 128, 128, 0.227);
+    box-shadow: 1px 1px 5px gray;
+}
+.service_name{
+    font-size: 16px;
+    font-weight: 800;
+}
+.todayBooking{
+    display: flex;
+    /* justify-content: space-between; */
+    /* margin-top: 20px; */
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid goldenrod;
+}
+.todayBooking div{
+    width: 25%;
+    color: black;
+    text-align: left;
+}
+.customer{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    /* margin-top: 20px; */
+}
+.bookingdata{
+    display: flex !important;
+    justify-content: space-between !important;
+    border-bottom: 1px solid goldenrod !important;
+    /* align-items: center; */
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    padding: 10px 0 !important;
+    cursor: pointer !important;
+    border-radius: 10px !important;
+    width: 100% !important;
+    color: black !important;
+}
+.bookingdata:hover{
+    background-color: goldenrod !important;
+    color: white !important;
+}
+.bookingdata div{
+    width: 25%;
+    text-align: left;
+}
+.bookingdate{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: white;
+}
+.noClient{
+    padding-left: 50px;
+}
+.bookingAmount{
+    color: goldenrod;
+    font-size: 16px;
+    font-weight: 800;
+}
+.date_range{
+    display: flex;
+    margin-top: 25px;
+    gap: 30px;
+}
+.date_range input{
+    padding: 10px;
+    width: 250px;
+    border-radius: 7px;
+    outline: none;
+    border: 2px solid goldenrod !important;
+}
+.billdetails{
+    min-height: 1px;
+    max-height: 63vh;
+    background-color: white;
+    overflow: auto;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.print_border {
+    border-collapse: collapse;
+  }
+  
+.print_border tr:last-of-type {
+    border-top: 2px solid goldenrod;
+    border-bottom: 2px solid rgb(0, 0, 0);
+  }
+.print_border tr:first-of-type {
+    border-top: 2px solid goldenrod;
+}
+
+.print_border tr {
+    border-top: 1px solid rgba(0, 0, 0, 0.301);
+}
+.inside_modal{
+    display: flex;
+    gap: 10px;
+}
+.bill_flex{
+    width: 60%;
+    /* border: 1px solid gray; */
+    border-radius: 10px;
+    padding: 10px;
+    height: 500px;
+    overflow: auto;
+}
+
+.bills{
+    width: 40%;
+    /* border: 1px solid gray; */
+    border-radius: 10px;
+    padding: 10px;
+    height: 500px;
+    overflow: auto;
+}
+.cus_name{
+    font-weight: 800;
+    color: goldenrod;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.cus_num{
+    font-weight: 400;
+    color: goldenrod;
+    font-size: 18px;
+    display: flex;
+    gap: 5px;
+}
+.bill_det{
+    /* border-bottom: 1px solid gray; */
+    /* border-radius: 10px; */
+    /* padding: 10px; */
+    margin-top: 15px;
+    min-height: 1px;
+    max-height: 250px;
+    overflow: auto;
+}
+.make_bill{
+    display: flex;
+    justify-content: space-between;
+    align-items: center !important;
+    /* border-bottom: 1px solid gray; */
+    padding: 5px 10px 0 10px;
+}
+.make_service{
+    font-weight: 700;
+    font-size: 16px;
+    /* border: 1px solid gray; */
+    padding: 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.amt_staff{
+    display: flex;
+    justify-content: space-between;
+}
+.make_amount{
+    font-size: 14px;
+    /* color: gray; */
+}
+.make_staff{
+    font-weight: 700;
+    font-size: 14px;
+}
+.total_amount{
+    border: 1px solid gray;
+    width: 10ch;
+    padding: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 9px;
+}
+.tax{
+    color: green;
+}
+
+.amount_input .TextField{
+    width: 10ch;
+    padding: 0 !important;
+    height: 50px;
+}
+.amount_input .TextField input{
+    height: 14px;
+}
+
+.tax_tag{
+    border-top: 1px solid gray;
+}
+
+.day_bill{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day_bills{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.Typography Button{
+    min-width: 20px !important;
+    padding: 10px !important;
+    border-radius: 50% !important;
+    background-color: papayawhip !important;
+    color: goldenrod !important;
+}
+.pic_profile{
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.img img{
+    width: 100%;
+    height: 200px;
+    border-radius: 50px;
+    position: relative;
+}
+.edit{
+    position: absolute;
+    right: 735px;
+    top: 265px;
+}
+.edit Button{
+    border-radius: 50px;
+    min-width: 30px !important;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+.edit Button:hover{
+    border-radius: 50px;
+    min-width: 30px !important;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+.name{
+    font-size: 18px;
+    font-weight: 600;
+}
+.email{
+    font-size: 14px;
+}
+.phone{
+    font-size: 14px;
+}
+.address{
+    width: 100%;
+    padding-top: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-top: 1px solid goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.address a{
+    text-decoration: none;
+    color: goldenrod;
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+}
