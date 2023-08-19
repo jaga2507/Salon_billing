@@ -60,3 +60,8 @@
     width: 25%;
     text-align: left !important;
 }
+
+.datePicker{
+    outline: none !important;
+    border: none;
+}

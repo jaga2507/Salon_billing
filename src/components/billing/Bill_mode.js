@@ -307,12 +307,12 @@ function Bill_mode(props) {
                           </div>
                           <div className='make_service' >
                             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                              <InputLabel id="demo-select-small-label">Age</InputLabel>
+                              <InputLabel id="demo-select-small-label">staff</InputLabel>
                               <Select
                                 labelId="demo-select-small-label"
                                 id="demo-select-small"
                                 value={age}
-                                label="Age"
+                                label="staff"
                                 onChange={handleChange}
                               >
                                 <MenuItem value="">

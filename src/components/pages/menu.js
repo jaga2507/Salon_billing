@@ -147,9 +147,11 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography className="Typography" style={{ fontWeight:"800", textAlign:"right", width:"100%"}} variant="h6" noWrap component="div">
-            <Button className="tag" >
-              <PersonIcon/>
-            </Button>
+            <Link to="/profile" >
+              <Button className="tag" >
+                <PersonIcon/>
+              </Button>
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
