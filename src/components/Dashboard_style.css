@@ -1,10 +1,11 @@
-.log{
+.log {
     font-size: 22px;
     font-weight: 800;
-    color: goldenrod;   
+    color: #004f87;
     margin: 14px;
 }
-.sale_list{
+
+.sale_list {
     display: flex;
     gap: 20px;
     /* justify-content: space-between; */
@@ -12,7 +13,8 @@
     width: 100%;
     flex-wrap: wrap;
 }
-.sale_card{
+
+.sale_card {
     width: 180px;
     height: 18vh;
     background-color: white;
@@ -26,15 +28,17 @@
     flex-direction: column;
     gap: 20px;
 }
-.chart{
+
+.chart {
     display: flex;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    width: 100%;    
+    width: 100%;
     /* flex-wrap: wrap; */
 }
-.over_all_sale{
+
+.over_all_sale {
     width: 46%;
     margin: 20px 0;
     height: 50vh;
@@ -46,22 +50,26 @@
     display: flex;
     flex-direction: column;
 }
-.today_sale{
+
+.today_sale {
     font-size: 16px;
     font-weight: 600;
     color: rgb(64, 64, 64);
 }
-.money{
+
+.money {
     font-size: 20px;
     font-weight: 800;
-    color: goldenrod;
+    color: #004f87;
 }
-.bar canvas{
+
+.bar canvas {
     width: fit-content !important;
     /* height: 100% !important; */
     /* zoom: 0.6; */
 }
-.bar{
+
+.bar {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,7 +82,8 @@
     border-radius: 20px;
     padding: 25px 30px;
 }
-.pie{
+
+.pie {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,35 +96,41 @@
     border-radius: 20px;
     padding: 25px 30px;
 }
-.pieChart{
+
+.pieChart {
     display: flex;
     height: 40vh !important;
     align-items: center;
     gap: 60px;
 }
-.pieData{
+
+.pieData {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.displayData{
+
+.displayData {
     display: flex;
     gap: 5px;
 }
-.displayData{
+
+.displayData {
     font-size: 18px;
-    color: goldenrodenrod;
+    color: #004f87;
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: space-between;
 }
-.radar_chart Radar{
+
+.radar_chart Radar {
     width: 100% !important;
     display: unset !important;
     height: 100% !important;
 }
-.radar{
+
+.radar {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -128,7 +143,8 @@
     border-radius: 20px;
     padding: 25px 30px;
 }
-.data_table{
+
+.data_table {
     text-align: center !important;
     justify-content: center !important;
     display: flex !important;
@@ -141,12 +157,14 @@
     padding: 25px 30px;
     margin: 20px 0;
 }
-.home{
+
+.home {
     display: flex;
     /* gap: 20px; */
     height: 100vh;
 }
-.home_menu{
+
+.home_menu {
     /* width: 15vw; */
     /* background-color: white; */
     box-shadow: 1px 1px 20px gray;
@@ -154,30 +172,36 @@
     background-color: white;
     /* overflow-y: unset; */
 }
-.home_menu .css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+
+.home_menu .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
     background-color: white;
 }
-.app{
+
+.app {
     padding: 30px;
     overflow-y: auto !important;
     width: 100% !important;
     margin-top: 50px;
 }
-.logo{
+
+.logo {
     padding: 15px;
     font-size: 25px;
     font-weight: 800;
     text-align: center;
     /* border-bottom: 1px solid rgba(218, 165, 32, 0.219); */
 }
-.home_dashboard{
+
+.home_dashboard {
     width: 100%;
 }
-.tabs{
+
+.tabs {
     display: flex !important;
     flex-direction: column !important;
 }
-.menu_page{
+
+.menu_page {
     text-decoration: none;
     color: black;
     font-size: 18px;
@@ -188,13 +212,15 @@
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 10px;    
+    gap: 10px;
 }
-.menu_page:hover{
-    background-color: goldenrod;
+
+.menu_page:hover {
+    background-color: #004f87;
     color: white;
 }
-.bill{
+
+.bill {
     position: sticky !important;
     display: flex !important;
     align-items: flex-end !important;
@@ -202,8 +228,9 @@
     bottom: 0 !important;
     left: 0 !important;
 }
-.bill_button{
-    background-color: goldenrod !important;
+
+.bill_button {
+    background-color: #004f87 !important;
     color: white !important;
     border-radius: 50% !important;
     display: flex !important;
@@ -216,12 +243,14 @@
     margin: 0 !important;
     padding: 0 0 3px 0 !important;
 }
-.welcome{
+
+.welcome {
     text-align: center;
-    color: goldenrod;
+    color: #004f87;
     margin-bottom: 15px;
 }
-.product_card{
+
+.product_card {
     width: 15vw;
     margin: 20px 0;
     height: 44vh;
@@ -232,29 +261,36 @@
     display: flex;
     flex-direction: column;
 }
-.product_img img{
+
+.product_img img {
     width: 100%;
     height: 25vh;
     border-radius: 20px;
 }
-.product_img img{
+
+.product_img img {
     /* border: 1px solid grey; */
 }
-.card_title{
+
+.card_title {
     font-size: 18px;
     font-weight: 800;
 }
-.card_details{
+
+.card_details {
     padding: 5px 10px;
 }
-.card_rating{
+
+.card_rating {
     margin-top: 3px;
     font-weight: 800;
 }
-.product_information{
+
+.product_information {
     font-size: 14px;
 }
-.product_main{
+
+.product_main {
     display: flex;
     gap: 50px;
     flex-wrap: wrap;
@@ -262,7 +298,7 @@
     cursor: pointer;
 }
 
-.cus_welcome{
+.cus_welcome {
     font-size: 22px;
     font-weight: 900;
     display: flex;
@@ -270,35 +306,43 @@
     gap: 10px;
     justify-content: flex-start;
 }
-.cus_modal{
+
+.cus_modal {
     margin-top: 10px;
     font-size: 18px;
     font-weight: 700;
 }
-.cus_number{
+
+.cus_number {
     margin-top: 10px;
     font-size: 16px;
     font-weight: 700;
 }
-.cus_input{
+
+.cus_input {
     margin-top: 10px;
 }
-.date_input{
-     padding: 5px 0 0 0;
+
+.date_input {
+    padding: 5px 0 0 0;
 }
-.cus_button{
+
+.cus_button {
     display: flex;
     justify-content: space-between;
     margin-top: 60px;
     align-items: flex-end !important;
 }
-.cus_button Buttons{
+
+.cus_button Buttons {
     width: 200px !important;
 }
-.cus_input TextField{
+
+.cus_input TextField {
     width: 100%;
 }
-.bill_sheet{
+
+.bill_sheet {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -309,7 +353,8 @@
     padding: 0 10px 10px 10px;
     overflow: auto;
 }
-.Bill_card{
+
+.Bill_card {
     border: 1px solid gray;
     padding: 20px;
     border-radius: 5px;
@@ -325,38 +370,44 @@
     flex-direction: column;
     gap: 5px;
 }
-.Bill_card:hover{
+
+.Bill_card:hover {
     background-color: rgba(128, 128, 128, 0.227);
     box-shadow: 1px 1px 5px gray;
 }
-.service_name{
+
+.service_name {
     font-size: 16px;
     font-weight: 800;
 }
-.todayBooking{
+
+.todayBooking {
     display: flex;
     /* justify-content: space-between; */
     /* margin-top: 20px; */
     font-weight: 600;
     font-size: 18px;
     padding-bottom: 20px;
-    border-bottom: 2px solid goldenrod;
+    border-bottom: 2px solid #004f87;
 }
-.todayBooking div{
+
+.todayBooking div {
     width: 25%;
     color: black;
     text-align: left;
 }
-.customer{
+
+.customer {
     background-color: white;
     padding: 10px;
     border-radius: 10px;
     /* margin-top: 20px; */
 }
-.bookingdata{
+
+.bookingdata {
     display: flex !important;
     justify-content: space-between !important;
-    border-bottom: 1px solid goldenrod !important;
+    border-bottom: 1px solid #004f87 !important;
     /* align-items: center; */
     font-weight: 400 !important;
     font-size: 16px !important;
@@ -366,41 +417,49 @@
     width: 100% !important;
     color: black !important;
 }
-.bookingdata:hover{
-    background-color: goldenrod !important;
+
+.bookingdata:hover {
+    background-color: #004f87 !important;
     color: white !important;
 }
-.bookingdata div{
+
+.bookingdata div {
     width: 25%;
     text-align: left;
 }
-.bookingdate{
+
+.bookingdate {
     display: flex;
     flex-direction: column;
     font-size: 16px;
     color: white;
 }
-.noClient{
+
+.noClient {
     padding-left: 50px;
 }
-.bookingAmount{
-    color: goldenrod;
+
+.bookingAmount {
+    color: #004f87;
     font-size: 16px;
     font-weight: 800;
 }
-.date_range{
+
+.date_range {
     display: flex;
     margin-top: 25px;
     gap: 30px;
 }
-.date_range input{
+
+.date_range input {
     padding: 10px;
     width: 250px;
     border-radius: 7px;
     outline: none;
-    border: 2px solid goldenrod !important;
+    border: 2px solid #004f87 !important;
 }
-.billdetails{
+
+.billdetails {
     min-height: 1px;
     max-height: 63vh;
     background-color: white;
@@ -409,26 +468,30 @@
     margin-top: 20px;
     border-radius: 20px;
 }
+
 .print_border {
     border-collapse: collapse;
-  }
-  
+}
+
 .print_border tr:last-of-type {
-    border-top: 2px solid goldenrod;
+    border-top: 2px solid #004f87;
     border-bottom: 2px solid rgb(0, 0, 0);
-  }
+}
+
 .print_border tr:first-of-type {
-    border-top: 2px solid goldenrod;
+    border-top: 2px solid #004f87;
 }
 
 .print_border tr {
     border-top: 1px solid rgba(0, 0, 0, 0.301);
 }
-.inside_modal{
+
+.inside_modal {
     display: flex;
     gap: 10px;
 }
-.bill_flex{
+
+.bill_flex {
     width: 60%;
     /* border: 1px solid gray; */
     border-radius: 10px;
@@ -437,7 +500,7 @@
     overflow: auto;
 }
 
-.bills{
+.bills {
     width: 40%;
     /* border: 1px solid gray; */
     border-radius: 10px;
@@ -445,20 +508,23 @@
     height: 500px;
     overflow: auto;
 }
-.cus_name{
+
+.cus_name {
     font-weight: 800;
-    color: goldenrod;
+    color: #004f87;
     margin-top: 10px;
     font-size: 18px;
 }
-.cus_num{
+
+.cus_num {
     font-weight: 400;
-    color: goldenrod;
+    color: #004f87;
     font-size: 18px;
     display: flex;
     gap: 5px;
 }
-.bill_det{
+
+.bill_det {
     /* border-bottom: 1px solid gray; */
     /* border-radius: 10px; */
     /* padding: 10px; */
@@ -467,14 +533,16 @@
     max-height: 250px;
     overflow: auto;
 }
-.make_bill{
+
+.make_bill {
     display: flex;
     justify-content: space-between;
     align-items: center !important;
     /* border-bottom: 1px solid gray; */
     padding: 5px 10px 0 10px;
 }
-.make_service{
+
+.make_service {
     font-weight: 700;
     font-size: 16px;
     /* border: 1px solid gray; */
@@ -483,19 +551,23 @@
     display: flex;
     align-items: center;
 }
-.amt_staff{
+
+.amt_staff {
     display: flex;
     justify-content: space-between;
 }
-.make_amount{
+
+.make_amount {
     font-size: 14px;
     /* color: gray; */
 }
-.make_staff{
+
+.make_staff {
     font-weight: 700;
     font-size: 14px;
 }
-.total_amount{
+
+.total_amount {
     border: 1px solid gray;
     width: 10ch;
     padding: 5px;
@@ -503,50 +575,54 @@
     padding: 10px;
     margin-left: 9px;
 }
-.tax{
+
+.tax {
     color: green;
 }
 
-.amount_input .TextField{
+.amount_input .TextField {
     width: 10ch;
     padding: 0 !important;
     height: 50px;
 }
-.amount_input .TextField input{
+
+.amount_input .TextField input {
     height: 14px;
 }
 
-.tax_tag{
+.tax_tag {
     border-top: 1px solid gray;
 }
 
-.day_bill{
+.day_bill {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.day_bills{
+.day_bills {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.profile{
+.profile {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
-.Typography Button{
+
+.Typography Button {
     min-width: 20px !important;
     padding: 10px !important;
     border-radius: 50% !important;
     background-color: papayawhip !important;
-    color: goldenrod !important;
+    color: #004f87 !important;
 }
-.pic_profile{
+
+.pic_profile {
     width: 100%;
     background-color: white;
     padding: 20px;
@@ -556,18 +632,21 @@
     justify-content: center;
     flex-direction: column;
 }
-.img img{
+
+.img img {
     width: 100%;
     height: 200px;
     border-radius: 50px;
     position: relative;
 }
-.edit{
+
+.edit {
     position: absolute;
     right: 735px;
     top: 265px;
 }
-.edit Button{
+
+.edit Button {
     border-radius: 50px;
     min-width: 30px !important;
     height: 40px;
@@ -575,7 +654,8 @@
     color: black;
     border: 1px solid black;
 }
-.edit Button:hover{
+
+.edit Button:hover {
     border-radius: 50px;
     min-width: 30px !important;
     height: 40px;
@@ -583,29 +663,34 @@
     color: black;
     border: 1px solid black;
 }
-.name{
+
+.name {
     font-size: 18px;
     font-weight: 600;
 }
-.email{
+
+.email {
     font-size: 14px;
 }
-.phone{
+
+.phone {
     font-size: 14px;
 }
-.address{
+
+.address {
     width: 100%;
     padding-top: 10px;
     margin-top: 10px;
     text-align: center;
-    border-top: 1px solid goldenrod;
+    border-top: 1px solid #004f87;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.address a{
+
+.address a {
     text-decoration: none;
-    color: goldenrod;
+    color: #004f87;
     display: flex;
     align-items: center;
     /* flex-direction: row; */

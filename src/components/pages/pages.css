@@ -1,4 +1,4 @@
-.cus-booking{
+.cus-booking {
     display: flex;
     background-color: white;
     width: fit-content;
@@ -6,24 +6,28 @@
     padding: 10px;
     border-radius: 10px;
 }
-.custm{
+
+.custm {
     font-size: 18px;
     text-align: center;
 }
-.count{
+
+.count {
     color: green;
     text-align: center;
     font-weight: 800;
 }
-.cusbooking{
+
+.cusbooking {
     display: flex;
     width: fit-content;
     gap: 15px;
     margin-top: 25px;
     border-radius: 10px;
 }
-.sale{
-    background-color: rgba(255,175,19,0.1);
+
+.sale {
+    background-color: #004f873f;
     width: fit-content;
     padding: 6px;
     font-weight: 700;
@@ -31,37 +35,43 @@
     margin-top: 25px;
 
 }
-.cusChart{
+
+.cusChart {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
 }
-.cusPie{
+
+.cusPie {
     width: 100%;
 }
-.cusRadar{
+
+.cusRadar {
     width: 100% !important;
 }
-.employee{
+
+.employee {
     background-color: white;
     padding: 10px;
     border-radius: 10px;
     margin-top: 20px;
 }
-.empDetails{
+
+.empDetails {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid rgba(218, 165, 32, 0.138);
 }
-.empDetails div{
+
+.empDetails div {
     width: 25%;
     text-align: left !important;
 }
 
-.datePicker{
+.datePicker {
     outline: none !important;
     border: none;
 }
