@@ -4,22 +4,80 @@ body {
 }
 
 .login {
-    background: url('../../asset/login_img.jpeg');
     display: flex;
     justify-content: center;
-    background-size: 100% 100%;
-    align-items: center;
     height: 100vh;
+}
+
+.welcome {
+    /* background: url('../../asset/cherry-welcome-1.png'); */
+    background-color: #004f87;
+    display: flex;
+    justify-content: center;
+    /* background-size: 100% 100%; */
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 100vh;
+}
+
+.welcome img {
+    width: 50%;
+}
+
+.title {
+    color: black;
 }
 
 .modal_box {
     width: 40%;
-    height: 60vh;
-    box-shadow: 1px 0px 30px black;
-    background-color: rgba(255, 255, 255, 0.351);
     display: flex;
-    border-radius: 30px;
+    background-color: white;
     padding: 0px;
+    align-items: center;
+}
+
+.modal {
+    width: 100%;
+}
+
+.login_input {
+    border: 2px solid #004f87;
+    width: 70%;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #e8f0fe;
+    box-shadow:
+        rgba(0, 85, 142, 0.4) 3px 3px,
+        rgba(0, 85, 142, 0.3) 6px 6px,
+        rgba(0, 85, 142, 0.2) 9px 9px,
+        rgba(0, 85, 142, 0.1) 12px 12px,
+        rgba(0, 85, 142, 0.05) 15px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.login_input input {
+    outline: none !important;
+    border: none;
+    background-color: #e8f0fe !important;
+    width: 100%;
+    /* text-align: center; */
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.login_input input:-internal-autofill-selected {
+    background-color: white !important;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .modal_img {
@@ -28,9 +86,9 @@ body {
     width: 100%;
 }
 
-.signin,
+
 .signup {
-    color: #004f8740;
+    color: gray;
     font-size: 20px;
     font-weight: 900;
     cursor: pointer;
@@ -40,7 +98,34 @@ body {
     height: 50px;
 }
 
-.signin:hover,
-.signup:hover {
+.login_btn {
+    background-color: #004f87 !important;
+}
+
+.signin {
     color: #004f87;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+    padding-top: 10px;
+    width: 50%;
+    text-align: center;
+    height: 50px;
+    /* border-bottom: 3px solid #004f87; */
+}
+
+.email_logo {
+    color: #004f87;
+    width: 50px !important;
+}
+
+.forgotPass {
+    width: 70%;
+}
+
+.forgotPass a {
+    color: #004f87;
+    text-decoration: underline;
+    text-align: left;
+    width: 100%;
 }
