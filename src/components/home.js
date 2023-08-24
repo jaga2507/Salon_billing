@@ -14,21 +14,21 @@ import TodayBooking from './tables/Today_Bookings'
 function Home() {
 
   const dataset = [{
-      names:"today sale",
-      count:["₹","11568"]
-    },
-    {
-      names:"Monthly Sale",
-      count:["₹","1,56,871"]
-    },
-    {
-      names:"Today walkin's",
-      count:"63"
-    },
-    {
-      names:"This month walkin",
-      count:"859"
-    },
+    names: "today sale",
+    count: ["₹", "11568"]
+  },
+  {
+    names: "Monthly Sale",
+    count: ["₹", "1,56,871"]
+  },
+  {
+    names: "Today walkin's",
+    count: "63"
+  },
+  {
+    names: "This month walkin",
+    count: "859"
+  },
   ]
 
 
@@ -36,7 +36,7 @@ function Home() {
     <div className='home' >
       <div className='home_dashboard' >
         <div className='sale_list' >
-            {dataset.map(item =>
+          {dataset.map(item =>
             <div className='sale_card'>
               <div className='today_sale'>
                 {item.names}
@@ -45,47 +45,47 @@ function Home() {
                 {item.count}
               </div>
             </div>
-            )}
+          )}
         </div>
-            <div className='sale' >
-            Employee-wise Revenue
-            </div>
+        <div className='sale' >
+          Employee-wise Revenue
+        </div>
         <div className='chart'>
           <div className='bar' >
             monthly sale chart1
-            <Bar_chart/>
+            <Bar_chart />
           </div>
         </div>
         <div className='cusChart' >
           <div className='cusRadar'>
             <div className='sale' >
-            Payment Method Comparison - ₹49,368.00
+              Payment Method Comparison - ₹49,368.00
             </div>
             <div className='bar' >
               monthly sale chart1
-              <Pie_chart/>
+              <Pie_chart />
             </div>
           </div>
           <div className='cusRadar'>
             <div className='sale' >
-             sales - ₹49,368.00
+              sales - ₹49,368.00
             </div>
             <div className='bar' >
               monthly sale chart1
-              <Radar/>
+              <Radar />
             </div>
           </div>
         </div>
-            <div className='sale' >
-             Today Bookings
-            </div>
-          <div className='data_table' >
-            <div> 
-              <TodayBooking/>
-            </div>
+        <div className='sale' >
+          Today Bookings
+        </div>
+        <div className='data_table' >
+          <div>
+            <TodayBooking />
           </div>
+        </div>
         <div className='bill' >
-          <Billing/>
+          <Billing />
         </div>
       </div>
     </div>

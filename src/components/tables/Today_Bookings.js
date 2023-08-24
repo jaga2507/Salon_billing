@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 import { Button } from "@mui/material";
-import Modal from '@mui/joy/Modal';
-import ModalClose from '@mui/joy/ModalClose';
-import Sheet from '@mui/joy/Sheet';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import Modal from "@mui/joy/Modal";
+import ModalClose from "@mui/joy/ModalClose";
+import Sheet from "@mui/joy/Sheet";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 function TodayBooking(props) {
     const [openBoxs, setOpenBoxs] = React.useState(false);
@@ -19,121 +19,99 @@ function TodayBooking(props) {
 
     const data = [
         {
-            id:'1',
-            customerName:'lokesh',
-            customerNumber:'6382102204',
-            services:'Hair Service',
-            date:'23-04-2023',
-            time:'09:34AM',
-            amount:'₹225'
+            id: "1",
+            customerName: "lokesh",
+            customerNumber: "6382102204",
+            services: "Hair Service",
+            date: "23-04-2023",
+            time: "09:34AM",
+            amount: "₹225",
         },
         {
-            id:'2',
-            customerName:'Karan Kumar',
-            customerNumber:'9685743216',
-            services:'Facial Service',
-            date:'23-04-2023',
-            time:'09:34AM',
-            amount:'₹3,000'
+            id: "2",
+            customerName: "Karan Kumar",
+            customerNumber: "9685743216",
+            services: "Facial Service",
+            date: "23-04-2023",
+            time: "09:34AM",
+            amount: "₹3,000",
         },
         {
-            id:'3',
-            customerName:'Arun kumar',
-            customerNumber:'6452135995',
-            services:'Hair Service',
-            date:'23-04-2023',
-            time:'09:34AM',
-            amount:'₹200'
+            id: "3",
+            customerName: "Arun kumar",
+            customerNumber: "6452135995",
+            services: "Hair Service",
+            date: "23-04-2023",
+            time: "09:34AM",
+            amount: "₹200",
         },
         {
-            id:'4',
-            customerName:'sathish',
-            services:'Hand & Feet Service',
-            customerNumber:'9632587412',
-            date:'23-04-2023',
-            time:'09:34AM',
-            amount:'₹500'
+            id: "4",
+            customerName: "sathish",
+            services: "Hand & Feet Service",
+            customerNumber: "9632587412",
+            date: "23-04-2023",
+            time: "09:34AM",
+            amount: "₹500",
         },
         {
-            id:'5',
-            customerName:'kiran',
-            customerNumber:'9764318523',
-            services:'Hair Service',
-            date:'23-04-2023',
-            time:'09:34AM',
-            amount:'₹450'
+            id: "5",
+            customerName: "kiran",
+            customerNumber: "9764318523",
+            services: "Hair Service",
+            date: "23-04-2023",
+            time: "09:34AM",
+            amount: "₹450",
         },
         {
-            id:'6',
-            customerName:'lokesh',
-            customerNumber:'9173826450',
-            services:'Combo Service',
-            date:'23-04-2023',
-            time:'09:34AM',
-            amount:'₹1,499'
+            id: "6",
+            customerName: "lokesh",
+            customerNumber: "9173826450",
+            services: "Combo Service",
+            date: "23-04-2023",
+            time: "09:34AM",
+            amount: "₹1,499",
         },
-    ]
+    ];
 
-    return(
+    return (
         <div>
-            <div className="todayBooking" >
-                <div>
-                    Number Of Bookings
-                </div>
-                <div>
-                    Customer
-                </div>
-                <div>
-                    Service Name
-                </div>
-                <div>
-                    Date & Time
-                </div>
-                <div>
-                    Amount
-                </div>
+            <div className="todayBooking">
+                <div>Number Of Bookings</div>
+                <div>Customer</div>
+                <div>Service Name</div>
+                <div>Date & Time</div>
+                <div>Amount</div>
             </div>
-            <div className="BookingDetails" >
-                {data.map((item)=>(
-                    <div key={item.id} >
-                        <Button 
-                            key={item.id}  
-                            value={item} 
+            <div className="BookingDetails">
+                {data.map((item) => (
+                    <div key={item.id}>
+                        <Button
+                            key={item.id}
+                            value={item}
                             onClick={(e) => {
                                 setOpenBoxs(true);
-                                setStoreMap1(item.customerName)
-                                setStoreMap2(item.customerNumber)
-                                setStoreMap3(item.services)
-                                setStoreMap4(item.date)
-                                setStoreMap5(item.time)
-                                setStoreMap6(item.amount)
-                            }} 
-                            name={item.customerName} 
-                            className="bookingdata" 
+                                setStoreMap1(item.customerName);
+                                setStoreMap2(item.customerNumber);
+                                setStoreMap3(item.services);
+                                setStoreMap4(item.date);
+                                setStoreMap5(item.time);
+                                setStoreMap6(item.amount);
+                            }}
+                            name={item.customerName}
+                            className="bookingdata"
                         >
-                            <div className="noClient" >
-                                {item.id}
-                            </div>
+                            <div className="noClient">{item.id}</div>
                             <div>
                                 {item.customerName}
-                                <div>
-                                    {item.customerNumber}
-                                </div>
+                                <div>{item.customerNumber}</div>
                             </div>
-                            <div>
-                                {item.services}
+                            <div>{item.services}</div>
+                            <div className="bookingdate">
+                                <span>{item.date}</span>
+                                <span>{item.time}</span>
                             </div>
-                            <div className="bookingdate" >
-                                <span>                          
-                                    {item.date}
-                                </span> 
-                                <span>
-                                    {item.time}
-                                </span>
-                            </div>
-                            <div className="bookingAmount" >
-                                {item.amount}
-                            </div>
+                            <div >{item.amount}</div>
                         </Button>
                     </div>
                 ))}
@@ -143,62 +121,123 @@ function TodayBooking(props) {
                 open={openBoxs}
                 onClose={(_event, reason) => {
                     alert(`Reason: ${reason}`);
-                    setOpenBoxs(false)
+                    setOpenBoxs(false);
                 }}
                 sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}
             >
                 <Sheet
-                variant="outlined"
+                    variant="outlined"
                     sx={{
                         width: 700,
-                        borderRadius: 'md',
+                        borderRadius: "md",
                         p: 3,
-                        height:500,
-                        background:"white",
+                        height: 500,
+                        background: "white",
                     }}
                 >
                     <ModalClose variant="outlined" />
-                    <div>
-                        <div className='cus_welcome' >
-                            {/* <ArrowBackIosNewIcon/> */}
+                    {/* <div>
+                        <div className="cus_welcome">
+                            <ArrowBackIosNewIcon/>
                             Welcome to Bill Details
                         </div>
                         <div>
-                        <div className="cus_modal" >
-                            Please check your Bill
-                        </div>
-                        <div className='day_bill' >
-                            <div className='day_bills'>
-                                <div key={storeMap1} className='cus_number'>
-                                    Customer Name : {storeMap1}
-                                </div>
-                                <div key={storeMap2} className='cus_number'>
-                                    Customer Number : {storeMap2}
-                                </div>
-                                <div key={storeMap3} className='cus_number'>
-                                    Service : {storeMap3}
-                                </div>
-                                <div key={storeMap4} className='cus_number'>
-                                    date : {storeMap4}
-                                </div>
-                                <div key={storeMap5} className='cus_number'>
-                                    time : {storeMap5}
-                                </div>
-                                <div key={storeMap1} className='cus_number'>
-                                    amount : {storeMap6}
+                            <div className="cus_modal">Please check your Bill</div>
+                            <div className="day_bill">
+                                <div className="day_bills">
+                                    <div key={storeMap1} className="cus_number">
+                                        Customer Name : {storeMap1}
+                                    </div>
+                                    <div key={storeMap2} className="cus_number">
+                                        Customer Number : {storeMap2}
+                                    </div>
+                                    <div key={storeMap3} className="cus_number">
+                                        Service : {storeMap3}
+                                    </div>
+                                    <div key={storeMap4} className="cus_number">
+                                        date : {storeMap4}
+                                    </div>
+                                    <div key={storeMap5} className="cus_number">
+                                        time : {storeMap5}
+                                    </div>
+                                    <div key={storeMap1} className="cus_number">
+                                        amount : {storeMap6}
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div> */}
+
+                    <div >
+
+                        <div className="cus_welcome">
+                            Welcome to Bill Details
+                        </div>
+
+                        <div style={{display :"flex" , justifyContent :"space-between"}}>
+                            <div key={storeMap1} className="cus_number" style={{display:"flex"}}>
+                                <p className="trypography-key">Customer Name :  </p>
+                                <p className="trypography-value">{storeMap1} </p>
+                            </div>
+
+                            <div key={storeMap2} className="cus_number" style={{display:"flex"}}>
+                                <p className="trypography-key">Customer Number :  </p>
+                                <p className="trypography-value">{storeMap2} </p>
+                            </div>
+                            
+                        </div>
+                        <div className='sale' style={{marginBottom :"20px"}} >
+                            Services
+                        </div>
+                        <div className="todayBooking" >
+                            <div>
+                                Service No
+                            </div>
+                            <div>
+                                Service Name
+                            </div>
+                            <div>
+                                Date & Time
+                            </div>
+                            <div>
+                                Amount
+                            </div>
+                        </div>
+                        <div className="BookingDetails" >
+                                <div  >
+                                    <div
+                                        className="bookingdata"
+                                    >
+                                        <div className="noClient" >
+                                            {"1"}
+                                        </div>
+                                  
+                                        <div>
+                                            {storeMap3}
+                                        </div>
+                                        <div className="bookingdate" >
+                                            <span >
+                                                {storeMap4}
+                                            </span>
+                                            <span>
+                                                {storeMap5}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            {storeMap6}
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </Sheet>
             </Modal>
         </div>
-    )
+    );
 }
 
 export default TodayBooking;

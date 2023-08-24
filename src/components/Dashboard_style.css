@@ -268,9 +268,6 @@
     border-radius: 20px;
 }
 
-.product_img img {
-    /* border: 1px solid grey; */
-}
 
 .card_title {
     font-size: 18px;
@@ -423,6 +420,8 @@
     color: white !important;
 }
 
+
+
 .bookingdata div {
     width: 25%;
     text-align: left;
@@ -432,7 +431,6 @@
     display: flex;
     flex-direction: column;
     font-size: 16px;
-    color: white;
 }
 
 .noClient {
@@ -440,10 +438,11 @@
 }
 
 .bookingAmount {
-    color: #004f87;
+    color: black;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 600;
 }
+
 
 .date_range {
     display: flex;
@@ -694,4 +693,18 @@
     display: flex;
     align-items: center;
     /* flex-direction: row; */
+}
+
+.trypography-key {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(64, 64, 64);
+
+}
+
+.trypography-value{
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #004f87;
 }
