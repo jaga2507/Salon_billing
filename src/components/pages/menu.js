@@ -39,7 +39,7 @@ function ResponsiveDrawer(props) {
 
   const data = [
     {
-        page:"dashboar",
+        page:"Dashboard",
         link:"/",
         icon:<LineAxisIcon/>
     },
@@ -49,7 +49,7 @@ function ResponsiveDrawer(props) {
         icon:<DescriptionIcon/>
     },
     {
-        page:"Employees",
+        page:"Employes",
         link:"/employe",
         icon:<BadgeIcon/>
     },
@@ -59,7 +59,7 @@ function ResponsiveDrawer(props) {
         icon:<ContentCutIcon/>
     },
     {
-        page:"customer",
+        page:"Customer",
         link:"/customer",
         icon:<PeopleIcon/>
     },
@@ -74,7 +74,7 @@ function ResponsiveDrawer(props) {
         icon:<PersonIcon/>
     },
     {
-        page:"login Out",
+        page:"Log Out",
         link:"/login",
         icon:<LogoutIcon/>
     },
@@ -147,9 +147,10 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography className="Typography" style={{ fontWeight:"800", textAlign:"right", width:"100%"}} variant="h6" noWrap component="div">
-            <Link to="/profile" >
+            <Link to="/login" >
               <Button className="tag" >
-                <PersonIcon/>
+                 Sign In
+                {/* <PersonIcon/> */}
               </Button>
             </Link>
           </Typography>

@@ -4,53 +4,44 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Sheet from "@mui/joy/Sheet";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import Bill_list from "../billing/Bill_list.js";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import {Box,TextField,Button,InputLabel,MenuItem,FormControl,Select} from "@mui/material";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import axios from "axios";
 
 function Bill_mode(props) {
-  const [datas, setDatas] = useState(false);
   const [openBoxs, setOpenBoxs] = useState(true);
-
-  // const [openBoxs, setOpenBoxs] = useState(false);
-  const [id, setId] = useState("");
-  const [names, setNames] = useState("");
-  const [nameprop, setNamesprop] = useState([]);
-  const [amount, setAmount] = useState("");
-  const [amountprop, setAmountprop] = useState([]);
+  const [serviceType, setserviceType] = useState("");
+  const [serviceData, setServiceData] = useState([]);
+  const [staffData, setStaffData] = useState([]);
+  const [billingServiceData, setBillingServiceData] = useState([]);
+  const [totalAmount , setTotalAmount ] = useState(0)
 
 
-  const handleAdd = (e) => {
-    if (!names) {
-      alert("enter an item");
-      return;
-    }
+  console.log("props : " , props)
 
-    const item = {
-      id: Math.floor(Math.random() * 10000),
-      value: names,
-    };
+  useEffect(() => {
+    getServiceData();
+    getStaffData();
+  }, [billingServiceData]);
 
-    const amounts = {
-      id: Math.floor(Math.random() * 10000),
-      value: amount,
-    };
-    setNamesprop((oldList) => [...oldList, item]);
-    setAmountprop((oldAmount) => [...oldAmount, amounts]);
-    setNames("");
-    setAmount("");
+  const getServiceData = () => {
+    axios
+      .get(`${process.env.REACT_APP_API}/serivce/get`)
+      .then(function (res) {
+        setServiceData(res.data);
+      });
   };
 
+  const getStaffData = () => {
+    axios.get(`${process.env.REACT_APP_API}/staff/get`).then(function (res) {
+      setStaffData(res.data);
+    });
+  };
 
   const data = [
     {
-      names: "hair service",
+      names: "hairs",
     },
     {
       names: "facial service",
@@ -62,7 +53,7 @@ function Bill_mode(props) {
       names: "product service",
     },
     {
-      names: "hair service",
+      names: "hairs",
     },
   ];
 
@@ -172,11 +163,18 @@ function Bill_mode(props) {
     },
   ];
 
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleChange = (event, index) => {
+    console.log(event.target.value, index);
+    setBillingServiceData((prevState)=>{
+      prevState[index]['staffID'] = event.target.value;
+      return [...prevState];
+    })
   };
+
+  const deleted = (index) =>{
+    alert(index)
+    billingServiceData.splice(index,1)
+  }
 
   return (
     <div>
@@ -215,57 +213,77 @@ function Bill_mode(props) {
                   <span>{props.cusNum}</span>
                 </div>
                 <div>
-
-                  <div style={{display : "flex"}}>
-                    <ArrowBackIosNewIcon  
-                      style={{marginTop : "30px" , cursor :"pointer"}}
-                      onClick={() => {
-                        setOpenBoxs(true);
-                      }}
-                    />
-                    <div className=" sale">Select The Service Type</div>
-                  </div>
-
                   <div>
                     {openBoxs ? (
-                      <div className="bill_sheet">
-                        {data.map((item) => (
-                          <div
+                      <>
+                        <div style={{ display: "flex" }}>
+                          <ArrowBackIosNewIcon
+                            style={{ marginTop: "30px", cursor: "pointer" }}
                             onClick={() => {
-                              setOpenBoxs(false);
-                              // props.setdata(false)
+                              setOpenBoxs(true);
                             }}
-                            className="Bill_card"
-                          >
-                            <div className="service_name">{item.names}</div>
-                          </div>
-                        ))}
-                      </div>
+                          />
+                          <div className=" sale">Select The Service Type</div>
+                        </div>
+                        <div className="bill_sheet">
+                          {data.map((item) => (
+                            <div
+                              onClick={() => {
+                                setserviceType(item.names);
+                                setOpenBoxs(false);
+                              }}
+                              className="Bill_card"
+                            >
+                              <div className="service_name">{item.names}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </>
                     ) : (
-                      // <Bill_list sethandle={setOpenBoxs} handle={openBoxs} />
-                      <div>
+                      <>
+                        <div style={{ display: "flex" }}>
+                          <ArrowBackIosNewIcon
+                            style={{ marginTop: "30px", cursor: "pointer" }}
+                            onClick={() => {
+                              setOpenBoxs(true);
+                            }}
+                          />
+                          <div className=" sale">Select The Service</div>
+                        </div>
                         <div>
-                          {/* <Print sethandles={setOpenBoxs} handles={openBoxs} /> */}
-                          <div className="bill_sheet">
-                            {service.map((item) => (
-                              <div
-                                className="Bill_card"
-                                onClick={() => {
-                                  handleAdd();
-                                  setId(item.id);
-                                  setNames(item.names);
-                                  setAmount(item.amount);
-                                }}
-                              >
-                                <div className="service_name">{item.names}</div>
-                                <div className="service_name">
-                                  {item.amount}
-                                </div>
-                              </div>
-                            ))}
+                          <div>
+                            <div className="bill_sheet">
+                              {serviceData.map((item) => {
+                                if (item.serviceType == serviceType) {
+                                  return (
+                                    <div
+                                      className="Bill_card"
+                                      onClick={() => {
+                                        setBillingServiceData((preState) => {
+                                          return [
+                                            ...preState,
+                                            { ...item, staffID: 0 },
+                                          ];
+                                        });
+                                        // handleAdd();
+                                        // setNames(item.serviceName);
+                                        // setAmount(item.servicePrice);
+                                      }}
+                                    >
+                                      <div className="service_name">
+                                        {item.serviceName}
+                                      </div>
+                                      <div className="service_name">
+                                        {item.servicePrice}
+                                      </div>
+                                    </div>
+                                  );
+                                }
+                              })}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </>
                     )}
                   </div>
                 </div>
@@ -274,21 +292,13 @@ function Bill_mode(props) {
             <div className="bills">
               <div className="cus_welcome">Make a bill</div>
               <div className="bill_det">
-                {/* {billData.map(item=>( */}
-                <div className="make_bill">
-                  <div>
-                    {nameprop.map((item) => (
-                      <div key={item.id} className="make_service">
-                        {item.value}
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    {amountprop.map((item) => (
-                      <div className="amt_staff">
-                        <div className="make_service">{item.value}</div>
-                        <div className="make_service">
-                          <FormControl
+                {billingServiceData?.map((item, index) => {
+                  return (
+                    <div className="amt_staff">
+                      <div className="make_service">{item.serviceName}</div>
+                      <div className="make_service">{item.servicePrice}</div>
+                      <div className="make_service">
+                        <FormControl
                             sx={{ m: 1, minWidth: 120 }}
                             size="small"
                           >
@@ -296,46 +306,54 @@ function Bill_mode(props) {
                               staff
                             </InputLabel>
                             <Select
+                              key={item._id}
                               labelId="demo-select-small-label"
-                              id="demo-select-small"
-                              value={age}
                               label="staff"
-                              onChange={handleChange}
+                              onChange={(e) => {
+                                handleChange(e,index)
+                              }}  
                             >
-                              <MenuItem value="">
+                              <MenuItem value={0}>
                                 <em>None</em>
                               </MenuItem>
-                              <MenuItem value={10}>furkaan</MenuItem>
-                              <MenuItem value={20}>salman</MenuItem>
-                              <MenuItem value={30}>firoz</MenuItem>
-                              <MenuItem value={30}>malik</MenuItem>
-                              <MenuItem value={30}>aalam</MenuItem>
-                              <MenuItem value={30}>naved</MenuItem>
+                              {staffData.map(p => (
+                                    <MenuItem  value={p._id}>
+                                      {p.staffName}
+                                    </MenuItem>
+                                  ))}
                             </Select>
                           </FormControl>
-                        </div>
+
+                               
+
+                       
                       </div>
-                    ))}
-                  </div>
-                </div>
-                {/* ))} */}
+
+                      <CloseOutlinedIcon 
+                        style={{marginTop : "15px" , cursor :"pointer"}}
+                          onClick={() => {
+                            deleted(index)
+                          }}
+                      />
+                    </div>
+                  );
+                })}
               </div>
               <div className="tax_tag">
                 <div></div>
                 <div className="make_bill tax">
                   <div>with tax</div>
                   <div>
-                    RS.
-                    {/* {billData.amount} */}
+                    RS.{totalAmount}
                   </div>
                 </div>
                 <div className="make_bill tax">
                   <div>without tax</div>
-                  <div>RS.5624</div>
+                  <div> RS.{totalAmount}</div>
                 </div>
               </div>
               <div className="make_bill">
-                <div className="total_amount">RS.5624</div>
+                <div className="total_amount">RS.{totalAmount}</div>
                 <div className="amount_input">
                   <Box
                     component="form"

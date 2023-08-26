@@ -1,12 +1,21 @@
 import './App.css';
 // import Home from './components/home'
-import React from 'react';
+import React, { useEffect } from 'react';
 import Menus from './components/pages/menu';
 // import ReactDOM from "react-dom/client";
 import Routers from './components/router/Routers';
+import {  Routes, Route } from "react-router-dom";
+import Login from "./components/login/LoginTab";
+import Register from "./components/login/Register";
+
+
 
   
 function App(){
+
+  let url = window.location.href.split("/").pop()
+
+
   return(
     <div>
       <div className="App">
@@ -14,10 +23,12 @@ function App(){
           <div className='home_menu' >
             <Menus/>
           </div>
-          <div className='app'>
+          
+          <div className={url == "login" ? "app" : "app"   }>
             <Routers/>
           </div>
         </div>
+
       </div>
     </div>
     );
