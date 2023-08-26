@@ -702,9 +702,74 @@
 
 }
 
-.trypography-value{
-    margin-left: 10px;
-    font-size: 18px;
-    font-weight: 600;
+.trypography-value {
+    /* margin-left: 10px; */
+    font-size: 24px;
+    font-weight: 800;
     color: #004f87;
+}
+
+.booking-time div {
+    display: flex;
+    align-items: center;
+}
+
+.booking-time>div>div:first-child {
+    width: 30%;
+    color: red;
+}
+
+.booking-time>div:last-child>div:last-child {
+    color: #004f87;
+}
+
+.booking_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-title {
+    display: flex;
+    color: red;
+    gap: 30px;
+}
+
+.booking-title div:first-child {
+    width: 60%;
+}
+
+.booking-title div:last-child {
+    width: 40%;
+}
+
+.booking-details {
+    min-height: 1px;
+    max-height: 180px;
+    overflow: auto;
+}
+
+.booking-service {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.booking-service div:first-child {
+    width: 60%;
+    font-size: 16px;
+}
+
+.booking-service div:last-child {
+    width: 40%;
+    font-size: 16px;
+}
+
+.booking-value {
+    display: flex;
+    justify-content: space-between;
+}
+
+.booking-value div:last-child {
+    color: green;
 }
