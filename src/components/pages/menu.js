@@ -32,6 +32,7 @@ const drawerWidth = 240;
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const UserName = localStorage.getItem("user");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -149,7 +150,9 @@ function ResponsiveDrawer(props) {
           <Typography className="Typography" style={{ fontWeight:"800", textAlign:"right", width:"100%"}} variant="h6" noWrap component="div">
             <Link to="/login" >
               <Button className="tag" >
-                 Sign In
+                {
+                  UserName ? UserName : "Sign In"
+                }
                 {/* <PersonIcon/> */}
               </Button>
             </Link>

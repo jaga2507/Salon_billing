@@ -99,7 +99,7 @@
 
 .pieChart {
     display: flex;
-    height: 40vh !important;
+    height: 264px ;
     align-items: center;
     gap: 60px;
 }
@@ -179,6 +179,12 @@
 
 .app {
     padding: 30px;
+    overflow-y: auto !important;
+    width: 100% !important;
+    margin-top: 50px;
+}
+
+.withoutApp {
     overflow-y: auto !important;
     width: 100% !important;
     margin-top: 50px;
@@ -708,4 +714,8 @@
     font-size: 18px;
     font-weight: 600;
     color: #004f87;
+}
+
+.MuiDateRangeCalendar-root > div:first-child {
+    display: none;
 }

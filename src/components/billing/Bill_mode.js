@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Input from "@mui/joy/Input";
+import { toast, ToastContainer } from "react-toastify";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Sheet from "@mui/joy/Sheet";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import {Box,TextField,Button,InputLabel,MenuItem,FormControl,Select} from "@mui/material";
+import { Box, TextField, Button, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import axios from "axios";
@@ -15,29 +16,39 @@ function Bill_mode(props) {
   const [serviceData, setServiceData] = useState([]);
   const [staffData, setStaffData] = useState([]);
   const [billingServiceData, setBillingServiceData] = useState([]);
-  const [totalAmount , setTotalAmount ] = useState(0)
+  const [totalAmount, setTotalAmount] = useState(0)
+  const [customerServiceId, setCustomerServiceId] = useState([])
+  let totalServicePrice = 0;
+  let percentage = 18;
+  let calculatedAmount  = 0 
+
+  console.log("calculatedAmount" , calculatedAmount)
 
 
-  console.log("props : " , props)
 
   useEffect(() => {
     getServiceData();
     getStaffData();
-  }, [billingServiceData]);
+  }, []);
 
   const getServiceData = () => {
     axios
       .get(`${process.env.REACT_APP_API}/serivce/get`)
       .then(function (res) {
         setServiceData(res.data);
+        console.log("res.data", res.data)
       });
   };
 
   const getStaffData = () => {
     axios.get(`${process.env.REACT_APP_API}/staff/get`).then(function (res) {
       setStaffData(res.data);
+      console.log("res.data", res.data)
+
     });
   };
+
+
 
   const data = [
     {
@@ -57,123 +68,75 @@ function Bill_mode(props) {
     },
   ];
 
-  const service = [
-    {
-      id: "1",
-      names: "neat haircut",
-      amount: "125",
-    },
-    {
-      id: "2",
-      names: "taper haircut",
-      amount: "150",
-    },
-    {
-      id: "3",
-      names: "fade haircut",
-      amount: "175",
-    },
-    {
-      id: "4",
-      names: "New Look",
-      amount: "200",
-    },
-    {
-      id: "5",
-      names: "neat haircut",
-      amount: "125",
-    },
-    {
-      id: "6",
-      names: "taper haircut",
-      amount: "150",
-    },
-    {
-      id: "7",
-      names: "fade haircut",
-      amount: "175",
-    },
-    {
-      id: "8",
-      names: "New Look",
-      amount: "200",
-    },
-    {
-      id: "9",
-      names: "neat haircut",
-      amount: "125",
-    },
-    {
-      id: "10",
-      names: "taper haircut",
-      amount: "150",
-    },
-    {
-      id: "11",
-      names: "fade haircut",
-      amount: "175",
-    },
-    {
-      id: "12",
-      names: "New Look",
-      amount: "200",
-    },
-    {
-      id: "13",
-      names: "neat haircut",
-      amount: "125",
-    },
-    {
-      id: "14",
-      names: "taper haircut",
-      amount: "150",
-    },
-    {
-      id: "15",
-      names: "fade haircut",
-      amount: "175",
-    },
-    {
-      id: "16",
-      names: "New Look",
-      amount: "200",
-    },
-  ];
 
-  const billData = [
-    {
-      names: "New Look",
-      amount: 200,
-      staffName: "furkaan",
-    },
-    {
-      names: "neat haircut",
-      amount: 125,
-      staffName: "furkaan",
-    },
-    {
-      names: "O3 Facial",
-      amount: 5000,
-      staffName: "furkaan",
-    },
-    {
-      names: "fade haircut",
-      amount: 175,
-      staffName: "furkaan",
-    },
-  ];
+  const customerData = {
+    customerName: props.cusName,
+    customerPhoneNo: props.cusNum,
+    custumerAmount: totalAmount,
+    billingServiceData: billingServiceData
+  }
+
+  const HandelCustomerData = (event) => {
+    if(customerServiceId?.length > 0){
+      axios
+        .post(`${process.env.REACT_APP_API}/custumer/add`, customerData)
+        .then(function (res) {
+          if (res.data) {
+            setTimeout(function () {
+              props.setdata(false);
+            }, 2000);
+
+            toast.success("Added successfully", {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        });
+    }
+    else{
+      toast.warn("Please add Services", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
+
+
 
   const handleChange = (event, index) => {
-    console.log(event.target.value, index);
-    setBillingServiceData((prevState)=>{
-      prevState[index]['staffID'] = event.target.value;
+     setBillingServiceData((prevState) => {
+      prevState[index]['staff_id'] = event.target.value;
       return [...prevState];
     })
   };
 
-  const deleted = (index) =>{
-    alert(index)
-    billingServiceData.splice(index,1)
+  const HandelCustomerServiceData = (item) => {
+
+    setBillingServiceData((preState) => {
+        return [
+          ...preState,
+          {
+            _id: item?._id,
+            serviceName: item?.serviceName,
+            servicePrice: item?.servicePrice,
+            serviceType: item?.serviceType,
+            staff_id: 0
+          },
+        ];
+    });
+  }
+
+
+
+  const deleted = (index) => {
+    setBillingServiceData((prevState) => {
+      const newState = prevState.filter(serviceItem => serviceItem._id != index);
+      return [...newState];
+    })
+
+    setCustomerServiceId((prevState) => {
+      const newState = prevState.filter(serviceItem => serviceItem != index);
+      return [...newState];
+    })
+
   }
 
   return (
@@ -181,10 +144,6 @@ function Bill_mode(props) {
       <Modal
         aria-labelledby="close-modal-title"
         open={props.data}
-        onClose={(_event, reason) => {
-          alert(`Reason: ${reason}`);
-          props.setdata(false);
-        }}
         sx={{
           display: "flex",
           alignItems: "center",
@@ -201,7 +160,10 @@ function Bill_mode(props) {
             background: "white",
           }}
         >
-          <ModalClose variant="outlined" />
+          <ModalClose variant="outlined" onClick={() => {
+            props.setdata(false);
+            setBillingServiceData([])
+          }}/>
           <div className="inside_modal">
             <div className="bill_flex">
               <div>
@@ -259,19 +221,13 @@ function Bill_mode(props) {
                                     <div
                                       className="Bill_card"
                                       onClick={() => {
-                                        setBillingServiceData((preState) => {
-                                          return [
-                                            ...preState,
-                                            { ...item, staffID: 0 },
-                                          ];
-                                        });
-                                        // handleAdd();
-                                        // setNames(item.serviceName);
-                                        // setAmount(item.servicePrice);
+                                        setCustomerServiceId(preState => [...preState, item._id]);
+                                        HandelCustomerServiceData(item)
+
                                       }}
                                     >
                                       <div className="service_name">
-                                        {item.serviceName}
+                                        {item?.serviceName}
                                       </div>
                                       <div className="service_name">
                                         {item.servicePrice}
@@ -292,48 +248,49 @@ function Bill_mode(props) {
             <div className="bills">
               <div className="cus_welcome">Make a bill</div>
               <div className="bill_det">
-                {billingServiceData?.map((item, index) => {
+                {
+                  billingServiceData?.map((item, index) => {
+                    if (item?.servicePrice) {
+                      totalServicePrice += parseFloat(item.servicePrice);
+                      calculatedAmount  = ((totalServicePrice * percentage) / 100 ) + totalServicePrice ;
+                    }
                   return (
                     <div className="amt_staff">
-                      <div className="make_service">{item.serviceName}</div>
-                      <div className="make_service">{item.servicePrice}</div>
+                      <div className="make_service">{item?.serviceName}</div>
+                      <div className="make_service">{item?.servicePrice}</div>
                       <div className="make_service">
                         <FormControl
-                            sx={{ m: 1, minWidth: 120 }}
-                            size="small"
+                          sx={{ m: 1, minWidth: 120 }}
+                          size="small"
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            staff
+                          </InputLabel>
+                          <Select
+                            key={item?._id}
+                            labelId="demo-select-small-label"
+                            label="staff"
+                            onChange={(e) => {
+                              handleChange(e, index)
+                            }}
                           >
-                            <InputLabel id="demo-select-small-label">
-                              staff
-                            </InputLabel>
-                            <Select
-                              key={item._id}
-                              labelId="demo-select-small-label"
-                              label="staff"
-                              onChange={(e) => {
-                                handleChange(e,index)
-                              }}  
-                            >
-                              <MenuItem value={0}>
-                                <em>None</em>
+                            <MenuItem value={0}>
+                              <em>None</em>
+                            </MenuItem>
+                            {staffData.map(p => (
+                              <MenuItem value={p._id}>
+                                {p.staffName}
                               </MenuItem>
-                              {staffData.map(p => (
-                                    <MenuItem  value={p._id}>
-                                      {p.staffName}
-                                    </MenuItem>
-                                  ))}
-                            </Select>
-                          </FormControl>
-
-                               
-
-                       
+                            ))}
+                          </Select>
+                        </FormControl>
                       </div>
 
-                      <CloseOutlinedIcon 
-                        style={{marginTop : "15px" , cursor :"pointer"}}
-                          onClick={() => {
-                            deleted(index)
-                          }}
+                      <CloseOutlinedIcon
+                        style={{ marginTop: "15px", cursor: "pointer" }}
+                        onClick={() => {
+                          deleted(item?._id)
+                        }}
                       />
                     </div>
                   );
@@ -344,16 +301,16 @@ function Bill_mode(props) {
                 <div className="make_bill tax">
                   <div>with tax</div>
                   <div>
-                    RS.{totalAmount}
+                    RS {calculatedAmount.toFixed(2)}
                   </div>
                 </div>
                 <div className="make_bill tax">
                   <div>without tax</div>
-                  <div> RS.{totalAmount}</div>
+                  <div> RS {totalServicePrice}</div>
                 </div>
               </div>
               <div className="make_bill">
-                <div className="total_amount">RS.{totalAmount}</div>
+                <div className="total_amount">RS {totalServicePrice}</div>
                 <div className="amount_input">
                   <Box
                     component="form"
@@ -376,14 +333,15 @@ function Bill_mode(props) {
                   </Box>
                 </div>
                 <div>
-                  <Button variant="contained">Contained</Button>
+                  <Button variant="contained" onClick={HandelCustomerData} >Contained</Button>
                 </div>
               </div>
             </div>
           </div>
+        <ToastContainer/>
         </Sheet>
       </Modal>
-      <div>{/* <Bill_list sethandle={setOpenBoxs} handle={openBoxs} /> */}</div>
+     
     </div>
   );
 }
