@@ -40,7 +40,7 @@ function Bar_chart() {
     ) {
       const day = createdAt.getDate();
       const servicePrice = parseInt(
-        customer.custumerServices_id[0].servicePrice
+        customer.custumerAmount
       );
       dailyTotals[day] += servicePrice;
     }

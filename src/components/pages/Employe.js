@@ -6,8 +6,16 @@ import axios from 'axios';
 function Customer() {
 
     const [EmployeData, setEmployeData] = useState([])
-    const grapLabel = EmployeData.map(item => item.staffName);
-    const grapPrize = EmployeData.map(item => item.totalAmount);
+    const [filterData , setFilterData] = useState([])
+    const grapLabel = filterData.map(item => item.staffName);
+    const grapPrize = filterData.map(item => item.totalAmount);
+   
+
+    console.log("EmployeData" , EmployeData)
+
+    useEffect(() => {
+        setFilterData(EmployeData);
+    }, [EmployeData]);
 
 
     useEffect(() => {
@@ -22,6 +30,14 @@ function Customer() {
         });
     };
 
+    const handleDateChange = (event) => {
+        const selectedDate = event.target.value; 
+        const filteredData = EmployeData.filter((item) => {
+            return item.serviceCreatedAt?.split('T')[0] === selectedDate;
+        });
+        setFilterData(filteredData);
+    };
+
     return (
         <div>
             <div className='cus_welcome' >
@@ -29,7 +45,26 @@ function Customer() {
             </div>
             <div className='date_range' >
                 <div>
-                    <input placeholder='Search' type='date' />
+                    <input 
+                        placeholder="Search" 
+                        type="date" 
+                        onChange={handleDateChange}
+                    />
+
+                    <Buttons 
+                        onClick={() => {
+                            setFilterData(EmployeData)
+                        }}
+                        style={{
+                            marginLeft : "10px",
+                            height: "36px",
+                            marginTop: "3px"
+                        
+                        }}
+                        variant="contained" 
+                        color="warning">
+                        Reset
+                    </Buttons>
                 </div>
             </div>
             <div className='cusRadar'>

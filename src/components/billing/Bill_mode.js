@@ -22,7 +22,12 @@ function Bill_mode(props) {
   let percentage = 18;
   let calculatedAmount  = 0 
 
-  console.log("calculatedAmount" , calculatedAmount)
+
+  const [age, setAge] = React.useState('');
+
+  const handlePaymentChange = (event) => {
+    setAge(event.target.value);
+  };
 
 
 
@@ -309,6 +314,8 @@ function Bill_mode(props) {
                   <div> RS {totalServicePrice}</div>
                 </div>
               </div>
+
+          
               <div className="make_bill">
                 <div className="total_amount">RS {totalServicePrice}</div>
                 <div className="amount_input">
@@ -336,6 +343,7 @@ function Bill_mode(props) {
                   <Button variant="contained" onClick={HandelCustomerData} >Contained</Button>
                 </div>
               </div>
+              
             </div>
           </div>
         <ToastContainer/>

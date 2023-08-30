@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Bars_chart from "../charts/Bars_chart";
 import axios from "axios";
+import Buttons from "@mui/material/Button";
+
 
 function Customer() {
     const [serviceData, setServiceData] = useState([]);
     const [serviceCount, setServiceCount] = useState([]);
-    const grapLabel = serviceCount.map((item) => item?.serviceName);
-    const grapPrize = serviceCount.map((item) => item?.serviceCount);
+    const [filterData , setFilterData] = useState([])
+    const grapLabel = filterData.map((item) => item?.serviceName);
+    const grapPrize = filterData.map((item) => item?.serviceCount);
+
+    useEffect(() => {
+        setFilterData(serviceCount);
+    }, [serviceCount]);
+    
 
     useEffect(() => {
         HandelEmployeData();
@@ -26,13 +34,41 @@ function Customer() {
                 setServiceCount(res.data);
             });
     };
+    
+    const handleDateChange = (event) => {
+        const selectedDate = event.target.value; 
+        const filteredData = serviceCount.filter((item) => {
+            return item.serviceCreatedAt?.split('T')[0] === selectedDate;
+        });
+        setFilterData(filteredData);
+    };
+    
 
     return (
         <div>
             <div className="cus_welcome">Employees Details</div>
             <div className="date_range">
-                <div>
-                    <input placeholder="Search" type="date" />
+                <div style={{display : "flex"}}>
+                    <input 
+                        placeholder="Search" 
+                        type="date" 
+                        onChange={handleDateChange}
+                    />
+
+                    <Buttons 
+                        onClick={() => {
+                            setFilterData(serviceCount)
+                        }}
+                        style={{
+                            marginLeft : "10px",
+                            height: "36px",
+                            marginTop: "3px"
+                        
+                        }}
+                        variant="contained" 
+                        color="warning">
+                        Reset
+                    </Buttons>
                 </div>
             </div>
             <div className="cusRadar">

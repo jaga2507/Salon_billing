@@ -14,20 +14,6 @@ import axios from "axios";
 
 function Home() {
   const [customersData, setCustomersData] = useState([]);
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
   const today = new Date().toISOString().slice(0, 10);
   const customersForToday = customersData.filter((customer) =>
     customer.createdAt.startsWith(today)
@@ -38,6 +24,16 @@ function Home() {
   let monthwalkin = 0;
   let todaySale = 0;
   let Todaywalkin = 0;
+
+  useEffect(() => {
+    getcustomerData();
+  }, []);
+
+  const getcustomerData = () => {
+    axios.get(`${process.env.REACT_APP_API}/custumer/get`).then(function (res) {
+      setCustomersData(res.data);
+    });
+  };
 
   customersData.forEach((customer) => {
     const customerDate = new Date(customer.createdAt);
@@ -53,52 +49,7 @@ function Home() {
     Todaywalkin += 1;
   });
 
-  const currentYear = currentDate.getFullYear();
-  const dailyTotals = {};
-  customersData.forEach((customer) => {
-    const createdAt = new Date(customer.createdAt);
-    if (
-      createdAt.getMonth() === currentMonth &&
-      createdAt.getFullYear() === currentYear
-    ) {
-      const day = createdAt.getDate();
-      const servicePrice = parseInt(
-        customer.custumerServices_id[0].servicePrice
-      );
-      if (dailyTotals[day]) {
-        dailyTotals[day] += servicePrice;
-      } else {
-        dailyTotals[day] = servicePrice;
-      }
-    }
-  });
-
-  const resultArray = [];
-
-  for (const day in dailyTotals) {
-    const dayOfMonth = parseInt(day);
-    const currentDate = new Date();
-    currentDate.setDate(dayOfMonth);
-
-    const monthName = monthNames[currentDate.getMonth()];
-    const dateWithMonth = `${monthName} ${dayOfMonth}`;
-
-    resultArray.push(dateWithMonth);
-  }
-  const totalPriceArray = Object.values(dailyTotals);
-  console.log(totalPriceArray);
-  console.log(resultArray);
-
-  useEffect(() => {
-    getcustomerData();
-  }, []);
-
-  const getcustomerData = () => {
-    axios.get(`${process.env.REACT_APP_API}/custumer/get`).then(function (res) {
-      setCustomersData(res.data);
-    });
-  };
-
+  
   const dataset = [
     {
       names: "today sale",

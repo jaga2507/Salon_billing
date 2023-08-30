@@ -55,7 +55,7 @@ function Customer() {
 
   const filterDataByDateRange = () => {
     const filteredData = customerData.filter((item) => {
-      const createdAt = new Date(item.createdAt);
+      const createdAt = new Date(item?.createdAt);
       if (
         selectedStartDate &&
         selectedEndDate &&
@@ -128,32 +128,32 @@ function Customer() {
               return (
                 <div key={index}>
                   <Button
-                    key={item.id}
+                    key={item?.id}
                     value={item}
                     onClick={(e) => {
                       setOpenBoxs(true);
-                      setName(item.customerName);
-                      setPhoneNo(item.customerPhoneNo);
-                      setServiceDetailData(item.custumerServices_id);
+                      setName(item?.customerName);
+                      setPhoneNo(item?.customerPhoneNo);
+                      setServiceDetailData(item?.custumerServices_id);
                     }}
-                    name={item.customerName}
+                    name={item?.customerName}
                     className="bookingdata"
                   >
                     <div className="noClient">{index + 1}</div>
                     <div>
-                      {item.customerName}
-                      <div>{item.customerPhoneNo}</div>
+                      {item?.customerName}
+                      <div>{item?.customerPhoneNo}</div>
                     </div>
                     <div>{item?.custumerServices_id[0]?.serviceName}</div>
                     <div className="bookingdate">
                       <span>
-                        <Moment format="DD/MM/YYYY">{item.createdAt}</Moment>
+                        <Moment format="DD/MM/YYYY">{item?.createdAt}</Moment>
                       </span>
                       <span>
-                        <Moment format="hh:mm A">{item.createdAt}</Moment>
+                        <Moment format="hh:mm A">{item?.createdAt}</Moment>
                       </span>
                     </div>
-                    <div>₹{item.custumerAmount}</div>
+                    <div>₹{item?.custumerAmount}</div>
                   </Button>
                 </div>
               );
@@ -213,6 +213,7 @@ function Customer() {
                 </div>
 
                 {serviceDetailData?.map((el, index) => {
+
                   return (
                     <div
                       key={index}
