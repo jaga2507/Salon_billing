@@ -20,7 +20,7 @@ function Bill_mode(props) {
   const [customerServiceId, setCustomerServiceId] = useState([])
   let totalServicePrice = 0;
   let percentage = 18;
-  let calculatedAmount  = 0 
+  let calculatedAmount = 0
 
 
   const [age, setAge] = React.useState('');
@@ -82,7 +82,7 @@ function Bill_mode(props) {
   }
 
   const HandelCustomerData = (event) => {
-    if(customerServiceId?.length > 0){
+    if (customerServiceId?.length > 0) {
       axios
         .post(`${process.env.REACT_APP_API}/custumer/add`, customerData)
         .then(function (res) {
@@ -97,7 +97,7 @@ function Bill_mode(props) {
           }
         });
     }
-    else{
+    else {
       toast.warn("Please add Services", {
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -107,7 +107,7 @@ function Bill_mode(props) {
 
 
   const handleChange = (event, index) => {
-     setBillingServiceData((prevState) => {
+    setBillingServiceData((prevState) => {
       prevState[index]['staff_id'] = event.target.value;
       return [...prevState];
     })
@@ -116,16 +116,16 @@ function Bill_mode(props) {
   const HandelCustomerServiceData = (item) => {
 
     setBillingServiceData((preState) => {
-        return [
-          ...preState,
-          {
-            _id: item?._id,
-            serviceName: item?.serviceName,
-            servicePrice: item?.servicePrice,
-            serviceType: item?.serviceType,
-            staff_id: 0
-          },
-        ];
+      return [
+        ...preState,
+        {
+          _id: item?._id,
+          serviceName: item?.serviceName,
+          servicePrice: item?.servicePrice,
+          serviceType: item?.serviceType,
+          staff_id: 0
+        },
+      ];
     });
   }
 
@@ -168,16 +168,21 @@ function Bill_mode(props) {
           <ModalClose variant="outlined" onClick={() => {
             props.setdata(false);
             setBillingServiceData([])
-          }}/>
+          }} />
           <div className="inside_modal">
             <div className="bill_flex">
               <div>
-                <div className="cus_name">
-                  <span>{props.cusName}</span>
-                </div>
-                <div className="cus_num">
-                  <LocalPhoneIcon />
-                  <span>{props.cusNum}</span>
+                <div style={{ display: "flex", justifyContent: "space-between" }} >
+                  <div>
+                    <div className="cus_name">
+                      <span>{props.cusName}</span>
+                    </div>
+                    <div className="cus_num">
+                      <LocalPhoneIcon />
+                      <span>{props.cusNum}</span>
+                    </div>
+                  </div>
+                  <div className=" sale">Select The Service</div>
                 </div>
                 <div>
                   <div>
@@ -257,49 +262,49 @@ function Bill_mode(props) {
                   billingServiceData?.map((item, index) => {
                     if (item?.servicePrice) {
                       totalServicePrice += parseFloat(item.servicePrice);
-                      calculatedAmount  = ((totalServicePrice * percentage) / 100 ) + totalServicePrice ;
+                      calculatedAmount = ((totalServicePrice * percentage) / 100) + totalServicePrice;
                     }
-                  return (
-                    <div className="amt_staff">
-                      <div className="make_service">{item?.serviceName}</div>
-                      <div className="make_service">{item?.servicePrice}</div>
-                      <div className="make_service">
-                        <FormControl
-                          sx={{ m: 1, minWidth: 120 }}
-                          size="small"
-                        >
-                          <InputLabel id="demo-select-small-label">
-                            staff
-                          </InputLabel>
-                          <Select
-                            key={item?._id}
-                            labelId="demo-select-small-label"
-                            label="staff"
-                            onChange={(e) => {
-                              handleChange(e, index)
-                            }}
+                    return (
+                      <div className="amt_staff">
+                        <div className="make_service">{item?.serviceName}</div>
+                        <div className="make_service">{item?.servicePrice}</div>
+                        <div className="make_service">
+                          <FormControl
+                            sx={{ m: 1, minWidth: 120 }}
+                            size="small"
                           >
-                            <MenuItem value={0}>
-                              <em>None</em>
-                            </MenuItem>
-                            {staffData.map(p => (
-                              <MenuItem value={p._id}>
-                                {p.staffName}
+                            <InputLabel id="demo-select-small-label">
+                              staff
+                            </InputLabel>
+                            <Select
+                              key={item?._id}
+                              labelId="demo-select-small-label"
+                              label="staff"
+                              onChange={(e) => {
+                                handleChange(e, index)
+                              }}
+                            >
+                              <MenuItem value={0}>
+                                <em>None</em>
                               </MenuItem>
-                            ))}
-                          </Select>
-                        </FormControl>
-                      </div>
+                              {staffData.map(p => (
+                                <MenuItem value={p._id}>
+                                  {p.staffName}
+                                </MenuItem>
+                              ))}
+                            </Select>
+                          </FormControl>
+                        </div>
 
-                      <CloseOutlinedIcon
-                        style={{ marginTop: "15px", cursor: "pointer" }}
-                        onClick={() => {
-                          deleted(item?._id)
-                        }}
-                      />
-                    </div>
-                  );
-                })}
+                        <CloseOutlinedIcon
+                          style={{ marginTop: "15px", cursor: "pointer" }}
+                          onClick={() => {
+                            deleted(item?._id)
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
               </div>
               <div className="tax_tag">
                 <div></div>
@@ -315,7 +320,7 @@ function Bill_mode(props) {
                 </div>
               </div>
 
-          
+
               <div className="make_bill">
                 <div className="total_amount">RS {totalServicePrice}</div>
                 <div className="amount_input">
@@ -339,17 +344,17 @@ function Bill_mode(props) {
                     />
                   </Box>
                 </div>
-                <div>
-                  <Button variant="contained" onClick={HandelCustomerData} >Contained</Button>
-                </div>
               </div>
-              
+              <div>
+                <Button variant="contained" onClick={HandelCustomerData} >Partial Payment</Button>
+              </div>
+
             </div>
           </div>
-        <ToastContainer/>
+          <ToastContainer />
         </Sheet>
       </Modal>
-     
+
     </div>
   );
 }

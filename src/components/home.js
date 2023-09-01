@@ -49,7 +49,7 @@ function Home() {
     Todaywalkin += 1;
   });
 
-  
+
   const dataset = [
     {
       names: "today sale",
